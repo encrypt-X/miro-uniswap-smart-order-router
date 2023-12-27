@@ -37,6 +37,7 @@ import {
   USDC_OPTIMISM_GOERLI,
   USDC_POLYGON,
   USDC_SEPOLIA,
+  USDC_ZKATANA,
   USDT_ARBITRUM,
   USDT_BNB,
   USDT_MAINNET,
@@ -143,6 +144,10 @@ export const CACHE_SEED_TOKENS: {
   [ChainId.BASE]: {
     USDC: USDC_BASE,
     WETH: WRAPPED_NATIVE_CURRENCY[ChainId.BASE],
+  },
+  [ChainId.ZKATANA]: {
+    USDC: USDC_ZKATANA,
+    WETH: WRAPPED_NATIVE_CURRENCY[ChainId.ZKATANA],
   },
   // Currently we do not have providers for Moonbeam mainnet or Gnosis testnet
 };

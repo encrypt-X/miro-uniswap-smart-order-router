@@ -538,6 +538,15 @@ export const WBTC_MOONBEAM = new Token(
   'Wrapped BTC bridged using Multichain'
 );
 
+// Zkatana Tokens
+export const USDC_ZKATANA = new Token(
+  ChainId.ZKATANA,
+  '0x2dC3036683b4dFEA336Eb8b20bC974b33e408D73',
+  18,
+  'USDC',
+  'USD Base Coin'
+);
+
 export class TokenProvider implements ITokenProvider {
   constructor(
     private chainId: ChainId,
@@ -795,6 +804,8 @@ export const USDC_ON = (chainId: ChainId): Token => {
       return USDC_BASE;
     case ChainId.BASE_GOERLI:
       return USDC_BASE_GOERLI;
+    case ChainId.ZKATANA:
+      return USDC_ZKATANA;
     default:
       throw new Error(`Chain id: ${chainId} not supported`);
   }

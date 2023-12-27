@@ -29,6 +29,7 @@ export const V3_CORE_FACTORY_ADDRESSES: AddressMap = {
   [ChainId.BASE_GOERLI]:
     CHAIN_TO_ADDRESSES_MAP[ChainId.BASE_GOERLI].v3CoreFactoryAddress,
   [ChainId.BASE]: CHAIN_TO_ADDRESSES_MAP[ChainId.BASE].v3CoreFactoryAddress,
+  [ChainId.ZKATANA]: CHAIN_TO_ADDRESSES_MAP[ChainId.ZKATANA].v3CoreFactoryAddress,
   // TODO: Gnosis + Moonbeam contracts to be deployed
 };
 
@@ -73,6 +74,7 @@ export const UNISWAP_MULTICALL_ADDRESSES: AddressMap = {
   [ChainId.BASE_GOERLI]:
     CHAIN_TO_ADDRESSES_MAP[ChainId.BASE_GOERLI].multicallAddress,
   [ChainId.BASE]: CHAIN_TO_ADDRESSES_MAP[ChainId.BASE].multicallAddress,
+  [ChainId.ZKATANA]: CHAIN_TO_ADDRESSES_MAP[ChainId.ZKATANA].multicallAddress,
   // TODO: Gnosis + Moonbeam contracts to be deployed
 };
 
@@ -182,6 +184,13 @@ export const WETH9: {
   [ChainId.BASE]: new Token(
     ChainId.BASE,
     '0x4200000000000000000000000000000000000006',
+    18,
+    'WETH',
+    'Wrapped Ether'
+  ),
+  [ChainId.ZKATANA]: new Token(
+    ChainId.ZKATANA,
+    '0xEbB3F7644F5D523B4cA7F5d1C94ea023f1D9b066',
     18,
     'WETH',
     'Wrapped Ether'

@@ -22,6 +22,7 @@ export const SUPPORTED_CHAINS: ChainId[] = [
   ChainId.BNB,
   ChainId.AVALANCHE,
   ChainId.BASE,
+  ChainId.ZKATANA,
   // Gnosis and Moonbeam don't yet have contracts deployed yet
 ];
 
@@ -81,6 +82,8 @@ export const ID_TO_CHAIN_ID = (id: number): ChainId => {
       return ChainId.BASE;
     case 84531:
       return ChainId.BASE_GOERLI;
+    case 1261120:
+      return ChainId.ZKATANA;
     default:
       throw new Error(`Unknown chain id: ${id}`);
   }
@@ -104,6 +107,7 @@ export enum ChainName {
   AVALANCHE = 'avalanche-mainnet',
   BASE = 'base-mainnet',
   BASE_GOERLI = 'base-goerli',
+  ZKATANA = 'zkatana',
 }
 
 export enum NativeCurrencyName {
@@ -173,6 +177,11 @@ export const NATIVE_NAMES_BY_ID: { [chainId: number]: string[] } = {
     'ETHER',
     '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee',
   ],
+  [ChainId.ZKATANA]: [
+    'ETH',
+    'ETHER',
+    '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee',
+  ],
 };
 
 export const NATIVE_CURRENCY: { [chainId: number]: NativeCurrencyName } = {
@@ -192,6 +201,7 @@ export const NATIVE_CURRENCY: { [chainId: number]: NativeCurrencyName } = {
   [ChainId.BNB]: NativeCurrencyName.BNB,
   [ChainId.AVALANCHE]: NativeCurrencyName.AVALANCHE,
   [ChainId.BASE]: NativeCurrencyName.ETHER,
+  [ChainId.ZKATANA]: NativeCurrencyName.ETHER,
 };
 
 export const ID_TO_NETWORK_NAME = (id: number): ChainName => {
@@ -230,6 +240,8 @@ export const ID_TO_NETWORK_NAME = (id: number): ChainName => {
       return ChainName.BASE;
     case 84531:
       return ChainName.BASE_GOERLI;
+    case 1261120:
+      return ChainName.ZKATANA;
     default:
       throw new Error(`Unknown chain id: ${id}`);
   }
@@ -269,6 +281,8 @@ export const ID_TO_PROVIDER = (id: ChainId): string => {
       return process.env.JSON_RPC_PROVIDER_AVALANCHE!;
     case ChainId.BASE:
       return process.env.JSON_RPC_PROVIDER_BASE!;
+    case ChainId.ZKATANA:
+      return process.env.JSON_RPC_PROVIDER_ZKATANA!;
     default:
       throw new Error(`Chain id: ${id} not supported`);
   }
@@ -392,6 +406,13 @@ export const WRAPPED_NATIVE_CURRENCY: { [chainId in ChainId]: Token } = {
   [ChainId.BASE_GOERLI]: new Token(
     ChainId.BASE_GOERLI,
     '0x4200000000000000000000000000000000000006',
+    18,
+    'WETH',
+    'Wrapped Ether'
+  ),
+  [ChainId.ZKATANA]: new Token(
+    ChainId.ZKATANA,
+    '0xEbB3F7644F5D523B4cA7F5d1C94ea023f1D9b066',
     18,
     'WETH',
     'Wrapped Ether'
