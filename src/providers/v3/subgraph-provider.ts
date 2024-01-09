@@ -64,7 +64,7 @@ const SUBGRAPH_URL_BY_CHAIN: { [chainId in ChainId]?: string } = {
   [ChainId.BASE]:
     'https://api.studio.thegraph.com/query/48211/uniswap-v3-base/version/latest',
   [ChainId.ZKATANA]:
-    'http://34.143.199.195:8000/subgraphs/name/gradient/uniswap-v3-test4', // TODO
+    'http://34.143.199.195:8000/subgraphs/name/gradient/uniswap-v3-test12', // TODO
 };
 
 const PAGE_SIZE = 1000; // 1k is max possible query size from subgraph.
