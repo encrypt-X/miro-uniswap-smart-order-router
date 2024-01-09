@@ -288,7 +288,7 @@ export const ID_TO_PROVIDER = (id: ChainId): string => {
   }
 };
 
-export const WRAPPED_NATIVE_CURRENCY: { [chainId in ChainId]: Token } = {
+export const WRAPPED_NATIVE_CURRENCY: { [chainId: number]: Token } = {
   [ChainId.MAINNET]: new Token(
     1,
     '0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2',
@@ -570,7 +570,7 @@ class AvalancheNativeCurrency extends NativeCurrency {
 export class ExtendedEther extends Ether {
   public get wrapped(): Token {
     if (this.chainId in WRAPPED_NATIVE_CURRENCY) {
-      return WRAPPED_NATIVE_CURRENCY[this.chainId as ChainId];
+      return WRAPPED_NATIVE_CURRENCY[this.chainId as ChainId]!;
     }
     throw new Error('Unsupported chain ID');
   }

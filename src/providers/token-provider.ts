@@ -812,5 +812,5 @@ export const USDC_ON = (chainId: ChainId): Token => {
 };
 
 export const WNATIVE_ON = (chainId: ChainId): Token => {
-  return WRAPPED_NATIVE_CURRENCY[chainId];
+  return WRAPPED_NATIVE_CURRENCY[chainId]!;
 };

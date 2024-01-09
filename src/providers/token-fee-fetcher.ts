@@ -65,7 +65,7 @@ export class OnChainTokenFeeFetcher implements ITokenFeeFetcher {
     private gasLimitPerCall = GAS_LIMIT_PER_VALIDATE,
     private amountToFlashBorrow = AMOUNT_TO_FLASH_BORROW
   ) {
-    this.BASE_TOKEN = WRAPPED_NATIVE_CURRENCY[this.chainId]?.address;
+    this.BASE_TOKEN = WRAPPED_NATIVE_CURRENCY[this.chainId]!.address;
     this.contract = TokenFeeDetector__factory.connect(
       this.tokenFeeAddress,
       rpcProvider

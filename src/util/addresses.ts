@@ -113,17 +113,7 @@ export function constructSameAddressMap<T extends string>(
 }
 
 export const WETH9: {
-  [chainId in Exclude<
-    ChainId,
-    | ChainId.POLYGON
-    | ChainId.POLYGON_MUMBAI
-    | ChainId.CELO
-    | ChainId.CELO_ALFAJORES
-    | ChainId.GNOSIS
-    | ChainId.MOONBEAM
-    | ChainId.BNB
-    | ChainId.AVALANCHE
-  >]: Token;
+  [chainId: number]: Token;
 } = {
   [ChainId.MAINNET]: new Token(
     ChainId.MAINNET,

@@ -14,7 +14,7 @@ import {
 import { IV2SubgraphProvider, V2SubgraphPool } from './subgraph-provider';
 
 type ChainTokenList = {
-  readonly [chainId in ChainId]: Token[];
+  readonly [chainId: number]: Token[];
 };
 
 const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
@@ -65,7 +65,7 @@ export class StaticV2SubgraphProvider implements IV2SubgraphProvider {
     tokenOut?: Token
   ): Promise<V2SubgraphPool[]> {
     log.info('In static subgraph provider for V2');
-    const bases = BASES_TO_CHECK_TRADES_AGAINST[this.chainId];
+    const bases = BASES_TO_CHECK_TRADES_AGAINST[this.chainId]!;
 
     const basePairs: [Token, Token][] = _.flatMap(
       bases,

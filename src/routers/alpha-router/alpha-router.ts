@@ -2010,7 +2010,7 @@ export class AlphaRouter
       this.v3PoolProvider,
       providerConfig
     );
-    const nativeCurrency = WRAPPED_NATIVE_CURRENCY[this.chainId];
+    const nativeCurrency = WRAPPED_NATIVE_CURRENCY[this.chainId]!;
     const nativeAndQuoteTokenV3PoolPromise = !quoteToken.equals(nativeCurrency)
       ? getHighestLiquidityV3NativePool(
           quoteToken,

@@ -67,7 +67,7 @@ import { IV3PoolProvider } from './pool-provider';
 import { IV3SubgraphProvider, V3SubgraphPool } from './subgraph-provider';
 
 type ChainTokenList = {
-  readonly [chainId in ChainId]: Token[];
+  readonly [chainId: number]: Token[];
 };
 
 const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
@@ -127,13 +127,13 @@ const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
     DAI_CELO_ALFAJORES,
   ],
   [ChainId.GNOSIS]: [
-    WRAPPED_NATIVE_CURRENCY[ChainId.GNOSIS],
+    WRAPPED_NATIVE_CURRENCY[ChainId.GNOSIS]!,
     WBTC_GNOSIS,
     WXDAI_GNOSIS,
     USDC_ETHEREUM_GNOSIS,
   ],
   [ChainId.BNB]: [
-    WRAPPED_NATIVE_CURRENCY[ChainId.BNB],
+    WRAPPED_NATIVE_CURRENCY[ChainId.BNB]!,
     BUSD_BNB,
     DAI_BNB,
     USDC_BNB,
@@ -142,19 +142,19 @@ const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
     ETH_BNB,
   ],
   [ChainId.AVALANCHE]: [
-    WRAPPED_NATIVE_CURRENCY[ChainId.AVALANCHE],
+    WRAPPED_NATIVE_CURRENCY[ChainId.AVALANCHE]!,
     USDC_AVAX,
     DAI_AVAX,
   ],
   [ChainId.MOONBEAM]: [
-    WRAPPED_NATIVE_CURRENCY[ChainId.MOONBEAM],
+    WRAPPED_NATIVE_CURRENCY[ChainId.MOONBEAM]!,
     DAI_MOONBEAM,
     USDC_MOONBEAM,
     WBTC_MOONBEAM,
   ],
-  [ChainId.BASE_GOERLI]: [WRAPPED_NATIVE_CURRENCY[ChainId.BASE_GOERLI]],
-  [ChainId.BASE]: [WRAPPED_NATIVE_CURRENCY[ChainId.BASE], USDC_BASE],
-  [ChainId.ZKATANA]: [WRAPPED_NATIVE_CURRENCY[ChainId.ZKATANA], USDC_ZKATANA],
+  [ChainId.BASE_GOERLI]: [WRAPPED_NATIVE_CURRENCY[ChainId.BASE_GOERLI]!],
+  [ChainId.BASE]: [WRAPPED_NATIVE_CURRENCY[ChainId.BASE]!, USDC_BASE],
+  [ChainId.ZKATANA]: [WRAPPED_NATIVE_CURRENCY[ChainId.ZKATANA]!, USDC_ZKATANA],
 };
 
 /**
@@ -180,7 +180,7 @@ export class StaticV3SubgraphProvider implements IV3SubgraphProvider {
     providerConfig?: ProviderConfig
   ): Promise<V3SubgraphPool[]> {
     log.info('In static subgraph provider for V3');
-    const bases = BASES_TO_CHECK_TRADES_AGAINST[this.chainId];
+    const bases = BASES_TO_CHECK_TRADES_AGAINST[this.chainId]!;
 
     const basePairs: [Token, Token][] = _.flatMap(
       bases,

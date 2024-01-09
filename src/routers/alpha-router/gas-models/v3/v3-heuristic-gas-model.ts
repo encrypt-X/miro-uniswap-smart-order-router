@@ -119,7 +119,7 @@ export class V3HeuristicGasModelFactory extends IOnChainGasModelFactory {
       }
 
       // wrap fee to native currency
-      const nativeCurrency = WRAPPED_NATIVE_CURRENCY[chainId];
+      const nativeCurrency = WRAPPED_NATIVE_CURRENCY[chainId]!;
       const costNativeCurrency = CurrencyAmount.fromRawAmount(
         nativeCurrency,
         l1FeeInWei.toString()

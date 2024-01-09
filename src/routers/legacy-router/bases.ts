@@ -21,7 +21,7 @@ import {
 import { WRAPPED_NATIVE_CURRENCY } from '../../util/chains';
 
 type ChainTokenList = {
-  readonly [chainId in ChainId]: Token[];
+  readonly [chainId: number]: Token[];
 };
 
 export const BASES_TO_CHECK_TRADES_AGAINST = (
@@ -47,10 +47,10 @@ export const BASES_TO_CHECK_TRADES_AGAINST = (
     ],
     [ChainId.POLYGON]: [WMATIC_POLYGON],
     [ChainId.POLYGON_MUMBAI]: [WMATIC_POLYGON_MUMBAI],
-    [ChainId.CELO]: [WRAPPED_NATIVE_CURRENCY[ChainId.CELO]],
-    [ChainId.CELO_ALFAJORES]: [WRAPPED_NATIVE_CURRENCY[ChainId.CELO_ALFAJORES]],
-    [ChainId.GNOSIS]: [WRAPPED_NATIVE_CURRENCY[ChainId.GNOSIS]],
-    [ChainId.MOONBEAM]: [WRAPPED_NATIVE_CURRENCY[ChainId.MOONBEAM]],
+    [ChainId.CELO]: [WRAPPED_NATIVE_CURRENCY[ChainId.CELO]!],
+    [ChainId.CELO_ALFAJORES]: [WRAPPED_NATIVE_CURRENCY[ChainId.CELO_ALFAJORES]!],
+    [ChainId.GNOSIS]: [WRAPPED_NATIVE_CURRENCY[ChainId.GNOSIS]!],
+    [ChainId.MOONBEAM]: [WRAPPED_NATIVE_CURRENCY[ChainId.MOONBEAM]!],
     [ChainId.BNB]: [
       WRAPPED_NATIVE_CURRENCY[ChainId.BNB]!,
       BUSD_BNB,
