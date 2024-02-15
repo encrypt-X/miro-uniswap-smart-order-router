@@ -1021,7 +1021,7 @@ export class AlphaRouter
     partialRoutingConfig: Partial<AlphaRouterConfig> = {}
   ): Promise<SwapRoute | null> {
     const originalAmount = amount;
-    log.info({swapConfig} ,'Custom Log');
+    log.info({swapConfig} ,'Custom Log2');
     if (tradeType === TradeType.EXACT_OUTPUT) {
       const portionAmount = this.portionProvider.getPortionAmount(
         amount,
