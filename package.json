@@ -1,6 +1,6 @@
 {
   "name": "@uniswap/smart-order-router",
-  "version": "3.20.1",
+  "version": "3.20.2",
   "description": "Uniswap Smart Order Router",
   "main": "build/main/index.js",
   "typings": "build/main/index.d.ts",
@@ -40,7 +40,7 @@
     "@uniswap/universal-router-sdk": "git://github.com/encrypt-X/universal-router-sdk.git#115f8aff22758dbcda96739f72ceee5c2b10519a",
     "@uniswap/v2-sdk": "^3.2.3",
     "@uniswap/v3-sdk": "^3.10.0",
-    "@uniswap/sdk-core": "git://github.com/encrypt-X/sdk-core.git#0d83f0cb89f6df8b77da295e067ee0847273c020",
+    "@uniswap/sdk-core": "git://github.com/encrypt-X/sdk-core.git#4.0.11",
     "async-retry": "^1.3.1",
     "await-timeout": "^1.1.1",
     "axios": "^0.21.1",
