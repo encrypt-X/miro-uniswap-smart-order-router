@@ -38,6 +38,7 @@ import {
   USDC_POLYGON,
   USDC_SEPOLIA,
   USDC_ZKATANA,
+  USDC_SEIDEV,
   USDT_ARBITRUM,
   USDT_BNB,
   USDT_MAINNET,
@@ -149,6 +150,10 @@ export const CACHE_SEED_TOKENS: {
     USDC: USDC_ZKATANA,
     WETH: WRAPPED_NATIVE_CURRENCY[ChainId.ZKATANA]!,
   },
+  [ChainId.SEIDEV]: {
+    USDC: USDC_SEIDEV,
+    WETH: WRAPPED_NATIVE_CURRENCY[ChainId.SEIDEV]!,
+  },
   // Currently we do not have providers for Moonbeam mainnet or Gnosis testnet
 };
 
@@ -170,7 +175,7 @@ export class CachingTokenProviderWithFallback implements ITokenProvider {
     private tokenCache: ICache<Token>,
     protected primaryTokenProvider: ITokenProvider,
     protected fallbackTokenProvider?: ITokenProvider
-  ) {}
+  ) { }
 
   public async getTokens(_addresses: string[]): Promise<TokenAccessor> {
     const seedTokens = CACHE_SEED_TOKENS[this.chainId];
@@ -209,12 +214,10 @@ export class CachingTokenProviderWithFallback implements ITokenProvider {
 
     log.info(
       { addressesToFindInPrimary },
-      `Found ${addresses.length - addressesToFindInPrimary.length} out of ${
-        addresses.length
-      } tokens in local cache. ${
-        addressesToFindInPrimary.length > 0
-          ? `Checking primary token provider for ${addressesToFindInPrimary.length} tokens`
-          : ``
+      `Found ${addresses.length - addressesToFindInPrimary.length} out of ${addresses.length
+      } tokens in local cache. ${addressesToFindInPrimary.length > 0
+        ? `Checking primary token provider for ${addressesToFindInPrimary.length} tokens`
+        : ``
       }
       `
     );
@@ -241,12 +244,10 @@ export class CachingTokenProviderWithFallback implements ITokenProvider {
 
       log.info(
         { addressesToFindInSecondary },
-        `Found ${
-          addressesToFindInPrimary.length - addressesToFindInSecondary.length
-        } tokens in primary. ${
-          this.fallbackTokenProvider
-            ? `Checking secondary token provider for ${addressesToFindInSecondary.length} tokens`
-            : `No fallback token provider specified. About to return.`
+        `Found ${addressesToFindInPrimary.length - addressesToFindInSecondary.length
+        } tokens in primary. ${this.fallbackTokenProvider
+          ? `Checking secondary token provider for ${addressesToFindInSecondary.length} tokens`
+          : `No fallback token provider specified. About to return.`
         }`
       );
     }

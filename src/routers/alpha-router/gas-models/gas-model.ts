@@ -32,7 +32,9 @@ import {
   USDC_OPTIMISM,
   USDC_OPTIMISM_GOERLI,
   USDC_POLYGON,
-  USDC_SEPOLIA, USDC_ZKATANA,
+  USDC_SEPOLIA,
+  USDC_ZKATANA,
+  USDC_SEIDEV,
   USDT_ARBITRUM,
   USDT_BNB,
   USDT_GOERLI,
@@ -81,6 +83,7 @@ export const usdGasTokensByChain: { [chainId in ChainId]?: Token[] } = {
   [ChainId.AVALANCHE]: [DAI_AVAX, USDC_AVAX],
   [ChainId.BASE]: [USDC_BASE],
   [ChainId.ZKATANA]: [USDC_ZKATANA],
+  [ChainId.SEIDEV]: [USDC_SEIDEV],
 };
 
 export type L1ToL2GasCosts = {
@@ -106,8 +109,8 @@ export type BuildOnChainGasModelFactoryType = {
   quoteToken: Token;
   v2poolProvider: IV2PoolProvider;
   l2GasDataProvider?:
-    | IL2GasDataProvider<OptimismGasData>
-    | IL2GasDataProvider<ArbitrumGasData>;
+  | IL2GasDataProvider<OptimismGasData>
+  | IL2GasDataProvider<ArbitrumGasData>;
   providerConfig?: GasModelProviderConfig;
 };
 

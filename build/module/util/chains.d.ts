@@ -22,7 +22,8 @@ export declare enum ChainName {
     AVALANCHE = "avalanche-mainnet",
     BASE = "base-mainnet",
     BASE_GOERLI = "base-goerli",
-    ZKATANA = "zkatana"
+    ZKATANA = "zkatana",
+    SEIDEV = "seidev"
 }
 export declare enum NativeCurrencyName {
     ETHER = "ETH",
@@ -31,7 +32,8 @@ export declare enum NativeCurrencyName {
     GNOSIS = "XDAI",
     MOONBEAM = "GLMR",
     BNB = "BNB",
-    AVALANCHE = "AVAX"
+    AVALANCHE = "AVAX",
+    SEI = "SEI"
 }
 export declare const NATIVE_NAMES_BY_ID: {
     [chainId: number]: string[];

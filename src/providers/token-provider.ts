@@ -547,11 +547,20 @@ export const USDC_ZKATANA = new Token(
   'USD Base Coin'
 );
 
+// Sei Testnet Tokens
+export const USDC_SEIDEV = new Token(
+  ChainId.SEIDEV,
+  '0xace5f7Ea93439Af39b46d2748fA1aC19951c8d7C',
+  6,
+  'USDC',
+  'USD Coin'
+);
+
 export class TokenProvider implements ITokenProvider {
   constructor(
     private chainId: ChainId,
     protected multicall2Provider: IMulticallProvider
-  ) {}
+  ) { }
 
   private async getTokenSymbol(
     addresses: string[],
@@ -696,10 +705,8 @@ export class TokenProvider implements ITokenProvider {
       }
 
       log.info(
-        `Got token symbol and decimals for ${
-          Object.values(addressToToken).length
-        } out of ${addresses.length} tokens on-chain ${
-          providerConfig ? `as of: ${providerConfig?.blockNumber}` : ''
+        `Got token symbol and decimals for ${Object.values(addressToToken).length
+        } out of ${addresses.length} tokens on-chain ${providerConfig ? `as of: ${providerConfig?.blockNumber}` : ''
         }`
       );
     }
@@ -806,6 +813,8 @@ export const USDC_ON = (chainId: ChainId): Token => {
       return USDC_BASE_GOERLI;
     case ChainId.ZKATANA:
       return USDC_ZKATANA;
+    case ChainId.SEIDEV:
+      return USDC_SEIDEV;
     default:
       throw new Error(`Chain id: ${chainId} not supported`);
   }

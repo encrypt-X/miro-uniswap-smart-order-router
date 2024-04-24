@@ -23,6 +23,7 @@ export const SUPPORTED_CHAINS: ChainId[] = [
   ChainId.AVALANCHE,
   ChainId.BASE,
   ChainId.ZKATANA,
+  ChainId.SEIDEV,
   // Gnosis and Moonbeam don't yet have contracts deployed yet
 ];
 
@@ -84,6 +85,8 @@ export const ID_TO_CHAIN_ID = (id: number): ChainId => {
       return ChainId.BASE_GOERLI;
     case 1261120:
       return ChainId.ZKATANA;
+    case 713715:
+      return ChainId.SEIDEV;
     default:
       throw new Error(`Unknown chain id: ${id}`);
   }
@@ -108,6 +111,7 @@ export enum ChainName {
   BASE = 'base-mainnet',
   BASE_GOERLI = 'base-goerli',
   ZKATANA = 'zkatana',
+  SEIDEV = 'seidev',
 }
 
 export enum NativeCurrencyName {
@@ -119,6 +123,7 @@ export enum NativeCurrencyName {
   MOONBEAM = 'GLMR',
   BNB = 'BNB',
   AVALANCHE = 'AVAX',
+  SEI = 'SEI', // TODO
 }
 
 export const NATIVE_NAMES_BY_ID: { [chainId: number]: string[] } = {
@@ -182,6 +187,11 @@ export const NATIVE_NAMES_BY_ID: { [chainId: number]: string[] } = {
     'ETHER',
     '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee',
   ],
+  [ChainId.SEIDEV]: [
+    'SEI',
+    'SEI',
+    '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee', // TODO
+  ],
 };
 
 export const NATIVE_CURRENCY: { [chainId: number]: NativeCurrencyName } = {
@@ -202,6 +212,7 @@ export const NATIVE_CURRENCY: { [chainId: number]: NativeCurrencyName } = {
   [ChainId.AVALANCHE]: NativeCurrencyName.AVALANCHE,
   [ChainId.BASE]: NativeCurrencyName.ETHER,
   [ChainId.ZKATANA]: NativeCurrencyName.ETHER,
+  [ChainId.SEIDEV]: NativeCurrencyName.SEI, // TODO
 };
 
 export const ID_TO_NETWORK_NAME = (id: number): ChainName => {
@@ -242,6 +253,8 @@ export const ID_TO_NETWORK_NAME = (id: number): ChainName => {
       return ChainName.BASE_GOERLI;
     case 1261120:
       return ChainName.ZKATANA;
+    case 713715:
+      return ChainName.SEIDEV;
     default:
       throw new Error(`Unknown chain id: ${id}`);
   }
@@ -283,6 +296,8 @@ export const ID_TO_PROVIDER = (id: ChainId): string => {
       return process.env.JSON_RPC_PROVIDER_BASE!;
     case ChainId.ZKATANA:
       return process.env.JSON_RPC_PROVIDER_ZKATANA!;
+    case ChainId.SEIDEV:
+      return process.env.JSON_RPC_PROVIDER_SEIDEV!;
     default:
       throw new Error(`Chain id: ${id} not supported`);
   }
@@ -413,6 +428,13 @@ export const WRAPPED_NATIVE_CURRENCY: { [chainId: number]: Token } = {
   [ChainId.ZKATANA]: new Token(
     ChainId.ZKATANA,
     '0xEbB3F7644F5D523B4cA7F5d1C94ea023f1D9b066',
+    18,
+    'WETH',
+    'Wrapped Ether'
+  ),
+  [ChainId.SEIDEV]: new Token(
+    ChainId.SEIDEV,
+    '0x657389E6c95308BD24a9aCB40FDe474d4D580d63',
     18,
     'WETH',
     'Wrapped Ether'

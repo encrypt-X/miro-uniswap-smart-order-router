@@ -43,7 +43,9 @@ import {
   USDC_OPTIMISM,
   USDC_OPTIMISM_GOERLI,
   USDC_POLYGON,
-  USDC_SEPOLIA, USDC_ZKATANA,
+  USDC_SEPOLIA,
+  USDC_ZKATANA,
+  USDC_SEIDEV,
   USDT_ARBITRUM,
   USDT_BNB,
   USDT_GOERLI,
@@ -155,6 +157,7 @@ const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
   [ChainId.BASE_GOERLI]: [WRAPPED_NATIVE_CURRENCY[ChainId.BASE_GOERLI]!],
   [ChainId.BASE]: [WRAPPED_NATIVE_CURRENCY[ChainId.BASE]!, USDC_BASE],
   [ChainId.ZKATANA]: [WRAPPED_NATIVE_CURRENCY[ChainId.ZKATANA]!, USDC_ZKATANA],
+  [ChainId.SEIDEV]: [WRAPPED_NATIVE_CURRENCY[ChainId.SEIDEV]!, USDC_SEIDEV],
 };
 
 /**
@@ -172,7 +175,7 @@ export class StaticV3SubgraphProvider implements IV3SubgraphProvider {
   constructor(
     private chainId: ChainId,
     private poolProvider: IV3PoolProvider
-  ) {}
+  ) { }
 
   public async getPools(
     tokenIn?: Token,
