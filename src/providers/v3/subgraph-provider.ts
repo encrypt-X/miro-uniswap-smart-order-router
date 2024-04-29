@@ -66,7 +66,7 @@ const SUBGRAPH_URL_BY_CHAIN: { [chainId in ChainId]?: string } = {
   [ChainId.ZKATANA]:
     'http://34.143.199.195:8000/subgraphs/name/gradient/uniswap-v3-test12', // TODO
   [ChainId.SEIDEV]:
-    'https://api.thegraph.com/subgraphs/name/sei-labs/uniswap-v3-sei-testnet', // TODO
+    'https://api.studio.thegraph.com/query/72969/encryptx-miro-dev/v0.0.1', // TODO
 };
 
 const PAGE_SIZE = 1000; // 1k is max possible query size from subgraph.
