@@ -434,10 +434,10 @@ export const WRAPPED_NATIVE_CURRENCY: { [chainId: number]: Token } = {
   ),
   [ChainId.SEIDEV]: new Token(
     ChainId.SEIDEV,
-    '0x657389E6c95308BD24a9aCB40FDe474d4D580d63',
+    '0x57eE725BEeB991c70c53f9642f36755EC6eb2139',
     18,
-    'WETH',
-    'Wrapped Ether'
+    'WSEI',
+    'Wrapped SEI'
   ),
 };
 

@@ -555,6 +555,34 @@ export const USDC_SEIDEV = new Token(
   'USDC',
   'USD Coin'
 );
+export const WETH_SEIDEV = new Token(
+  ChainId.SEIDEV,
+  '0x657389E6c95308BD24a9aCB40FDe474d4D580d63',
+  18,
+  'WETH',
+  'Wrapped Ether'
+);
+export const WSEI_SEIDEV = new Token(
+  ChainId.SEIDEV,
+  '0x57eE725BEeB991c70c53f9642f36755EC6eb2139',
+  18,
+  'WSEI',
+  'Wrapped SEI'
+);
+export const mUSDT_SEIDEV = new Token(
+  ChainId.SEIDEV,
+  '0x567f503a01B3651FEe7A3f02b04B8d02Aa27FdE1',
+  18,
+  'mUSDT',
+  'miro Tether'
+);
+export const mWETH_SEIDEV = new Token(
+  ChainId.SEIDEV,
+  '0x3Aef8eAaa38b7cd991A7fe3BBC389717370c00d6',
+  18,
+  'mWETH',
+  'miro Wrapped Ether'
+);
 
 export class TokenProvider implements ITokenProvider {
   constructor(
@@ -774,6 +802,8 @@ export const USDT_ON = (chainId: ChainId): Token => {
       return USDT_ARBITRUM;
     case ChainId.BNB:
       return USDT_BNB;
+    case ChainId.SEIDEV:
+      return mUSDT_SEIDEV;
     default:
       throw new Error(`Chain id: ${chainId} not supported`);
   }

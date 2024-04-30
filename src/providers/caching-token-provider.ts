@@ -38,7 +38,6 @@ import {
   USDC_POLYGON,
   USDC_SEPOLIA,
   USDC_ZKATANA,
-  USDC_SEIDEV,
   USDT_ARBITRUM,
   USDT_BNB,
   USDT_MAINNET,
@@ -51,6 +50,7 @@ import {
   WBTC_OPTIMISM_GOERLI,
   WMATIC_POLYGON,
   WMATIC_POLYGON_MUMBAI,
+  mUSDT_SEIDEV,
 } from './token-provider';
 
 // These tokens will added to the Token cache on initialization.
@@ -151,8 +151,7 @@ export const CACHE_SEED_TOKENS: {
     WETH: WRAPPED_NATIVE_CURRENCY[ChainId.ZKATANA]!,
   },
   [ChainId.SEIDEV]: {
-    USDC: USDC_SEIDEV,
-    WETH: WRAPPED_NATIVE_CURRENCY[ChainId.SEIDEV]!,
+    USDT: mUSDT_SEIDEV,
   },
   // Currently we do not have providers for Moonbeam mainnet or Gnosis testnet
 };

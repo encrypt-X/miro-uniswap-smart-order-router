@@ -191,10 +191,10 @@ export const WETH9: {
   ),
   [ChainId.SEIDEV]: new Token(
     ChainId.SEIDEV,
-    '0x657389E6c95308BD24a9aCB40FDe474d4D580d63',
+    '0x3Aef8eAaa38b7cd991A7fe3BBC389717370c00d6',
     18,
-    'WETH',
-    'Wrapped Ether'
+    'mWETH',
+    'miro Wrapped Ether'
   ),
 };
 
