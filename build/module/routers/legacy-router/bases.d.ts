@@ -1,6 +1,6 @@
 import { ChainId, Token } from '@uniswap/sdk-core';
 import { ITokenProvider } from '../../providers/token-provider';
-declare type ChainTokenList = {
+type ChainTokenList = {
     readonly [chainId: number]: Token[];
 };
 export declare const BASES_TO_CHECK_TRADES_AGAINST: (_tokenProvider: ITokenProvider) => ChainTokenList;

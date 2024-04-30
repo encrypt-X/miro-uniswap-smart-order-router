@@ -32,12 +32,12 @@ export interface IV2PoolProvider {
         token1: Token;
     };
 }
-export declare type V2PoolAccessor = {
+export type V2PoolAccessor = {
     getPool: (tokenA: Token, tokenB: Token) => Pair | undefined;
     getPoolByAddress: (address: string) => Pair | undefined;
     getAllPools: () => Pair[];
 };
-export declare type V2PoolRetryOptions = RetryOptions;
+export type V2PoolRetryOptions = RetryOptions;
 export declare class V2PoolProvider implements IV2PoolProvider {
     protected chainId: ChainId;
     protected multicall2Provider: IMulticallProvider;

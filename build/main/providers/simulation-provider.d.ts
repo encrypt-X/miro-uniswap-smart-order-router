@@ -4,7 +4,7 @@ import { GasModelProviderConfig, SwapOptions, SwapRoute } from '../routers';
 import { CurrencyAmount } from '../util';
 import { IPortionProvider } from './portion-provider';
 import { ArbitrumGasData, OptimismGasData } from './v3/gas-data-provider';
-export declare type SimulationResult = {
+export type SimulationResult = {
     transaction: {
         hash: string;
         gas_used: number;

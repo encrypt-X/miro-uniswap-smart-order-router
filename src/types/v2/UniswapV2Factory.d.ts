@@ -2,21 +2,22 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import { EventFragment, FunctionFragment, Result } from "@ethersproject/abi";
-import { BytesLike } from "@ethersproject/bytes";
-import { Listener, Provider } from "@ethersproject/providers";
 import {
-  BaseContract,
+  ethers,
+  EventFilter,
+  Signer,
   BigNumber,
   BigNumberish,
-  CallOverrides,
-  ContractTransaction,
-  ethers,
-  Overrides,
   PopulatedTransaction,
-  Signer,
+  BaseContract,
+  ContractTransaction,
+  Overrides,
+  CallOverrides,
 } from "ethers";
-import { TypedEvent, TypedEventFilter, TypedListener } from "./commons";
+import { BytesLike } from "@ethersproject/bytes";
+import { Listener, Provider } from "@ethersproject/providers";
+import { FunctionFragment, EventFragment, Result } from "@ethersproject/abi";
+import type { TypedEventFilter, TypedEvent, TypedListener } from "./common";
 
 interface UniswapV2FactoryInterface extends ethers.utils.Interface {
   functions: {
@@ -81,6 +82,15 @@ interface UniswapV2FactoryInterface extends ethers.utils.Interface {
 
   getEvent(nameOrSignatureOrTopic: "PairCreated"): EventFragment;
 }
+
+export type PairCreatedEvent = TypedEvent<
+  [string, string, string, BigNumber] & {
+    token0: string;
+    token1: string;
+    pair: string;
+    arg3: BigNumber;
+  }
+>;
 
 export class UniswapV2Factory extends BaseContract {
   connect(signerOrProvider: Signer | Provider | string): this;
@@ -217,6 +227,16 @@ export class UniswapV2Factory extends BaseContract {
   };
 
   filters: {
+    "PairCreated(address,address,address,uint256)"(
+      token0?: string | null,
+      token1?: string | null,
+      pair?: null,
+      undefined?: null
+    ): TypedEventFilter<
+      [string, string, string, BigNumber],
+      { token0: string; token1: string; pair: string; arg3: BigNumber }
+    >;
+
     PairCreated(
       token0?: string | null,
       token1?: string | null,

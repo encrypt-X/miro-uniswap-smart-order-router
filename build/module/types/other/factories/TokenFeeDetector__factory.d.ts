@@ -1,5 +1,5 @@
-import { Provider } from "@ethersproject/providers";
 import { Signer } from "ethers";
+import { Provider } from "@ethersproject/providers";
 import type { TokenFeeDetector, TokenFeeDetectorInterface } from "../TokenFeeDetector";
 export declare class TokenFeeDetector__factory {
     static readonly abi: ({

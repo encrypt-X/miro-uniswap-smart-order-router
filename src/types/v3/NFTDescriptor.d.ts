@@ -2,23 +2,25 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import { FunctionFragment, Result } from "@ethersproject/abi";
-import { BytesLike } from "@ethersproject/bytes";
-import { Listener, Provider } from "@ethersproject/providers";
 import {
-  BaseContract,
+  ethers,
+  EventFilter,
+  Signer,
   BigNumber,
   BigNumberish,
-  CallOverrides,
-  ethers,
   PopulatedTransaction,
-  Signer,
+  BaseContract,
+  ContractTransaction,
+  CallOverrides,
 } from "ethers";
-import { TypedEvent, TypedEventFilter, TypedListener } from "./commons";
+import { BytesLike } from "@ethersproject/bytes";
+import { Listener, Provider } from "@ethersproject/providers";
+import { FunctionFragment, EventFragment, Result } from "@ethersproject/abi";
+import type { TypedEventFilter, TypedEvent, TypedListener } from "./common";
 
 interface NFTDescriptorInterface extends ethers.utils.Interface {
   functions: {
-    "constructTokenURI(tuple)": FunctionFragment;
+    "constructTokenURI((uint256,address,address,string,string,uint8,uint8,bool,int24,int24,int24,int24,uint24,address))": FunctionFragment;
   };
 
   encodeFunctionData(

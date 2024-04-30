@@ -2,22 +2,23 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import { EventFragment, FunctionFragment, Result } from "@ethersproject/abi";
-import { BytesLike } from "@ethersproject/bytes";
-import { Listener, Provider } from "@ethersproject/providers";
 import {
-  BaseContract,
+  ethers,
+  EventFilter,
+  Signer,
   BigNumber,
   BigNumberish,
-  CallOverrides,
+  PopulatedTransaction,
+  BaseContract,
   ContractTransaction,
-  ethers,
   Overrides,
   PayableOverrides,
-  PopulatedTransaction,
-  Signer,
+  CallOverrides,
 } from "ethers";
-import { TypedEvent, TypedEventFilter, TypedListener } from "./commons";
+import { BytesLike } from "@ethersproject/bytes";
+import { Listener, Provider } from "@ethersproject/providers";
+import { FunctionFragment, EventFragment, Result } from "@ethersproject/abi";
+import type { TypedEventFilter, TypedEvent, TypedListener } from "./common";
 
 interface IWETH9Interface extends ethers.utils.Interface {
   functions: {
@@ -81,6 +82,18 @@ interface IWETH9Interface extends ethers.utils.Interface {
   getEvent(nameOrSignatureOrTopic: "Approval"): EventFragment;
   getEvent(nameOrSignatureOrTopic: "Transfer"): EventFragment;
 }
+
+export type ApprovalEvent = TypedEvent<
+  [string, string, BigNumber] & {
+    owner: string;
+    spender: string;
+    value: BigNumber;
+  }
+>;
+
+export type TransferEvent = TypedEvent<
+  [string, string, BigNumber] & { from: string; to: string; value: BigNumber }
+>;
 
 export class IWETH9 extends BaseContract {
   connect(signerOrProvider: Signer | Provider | string): this;
@@ -239,6 +252,15 @@ export class IWETH9 extends BaseContract {
   };
 
   filters: {
+    "Approval(address,address,uint256)"(
+      owner?: string | null,
+      spender?: string | null,
+      value?: null
+    ): TypedEventFilter<
+      [string, string, BigNumber],
+      { owner: string; spender: string; value: BigNumber }
+    >;
+
     Approval(
       owner?: string | null,
       spender?: string | null,
@@ -246,6 +268,15 @@ export class IWETH9 extends BaseContract {
     ): TypedEventFilter<
       [string, string, BigNumber],
       { owner: string; spender: string; value: BigNumber }
+    >;
+
+    "Transfer(address,address,uint256)"(
+      from?: string | null,
+      to?: string | null,
+      value?: null
+    ): TypedEventFilter<
+      [string, string, BigNumber],
+      { from: string; to: string; value: BigNumber }
     >;
 
     Transfer(

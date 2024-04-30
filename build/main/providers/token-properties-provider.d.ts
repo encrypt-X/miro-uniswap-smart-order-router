@@ -6,12 +6,12 @@ import { TokenValidationResult } from './token-validator-provider';
 export declare const DEFAULT_TOKEN_PROPERTIES_RESULT: TokenPropertiesResult;
 export declare const POSITIVE_CACHE_ENTRY_TTL = 600;
 export declare const NEGATIVE_CACHE_ENTRY_TTL = 600;
-declare type Address = string;
-export declare type TokenPropertiesResult = {
+type Address = string;
+export type TokenPropertiesResult = {
     tokenFeeResult?: TokenFeeResult;
     tokenValidationResult?: TokenValidationResult;
 };
-export declare type TokenPropertiesMap = Record<Address, TokenPropertiesResult>;
+export type TokenPropertiesMap = Record<Address, TokenPropertiesResult>;
 export interface ITokenPropertiesProvider {
     getTokensProperties(tokens: Token[], providerConfig?: ProviderConfig): Promise<TokenPropertiesMap>;
 }

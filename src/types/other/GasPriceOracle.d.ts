@@ -2,21 +2,22 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import { EventFragment, FunctionFragment, Result } from "@ethersproject/abi";
-import { BytesLike } from "@ethersproject/bytes";
-import { Listener, Provider } from "@ethersproject/providers";
 import {
-  BaseContract,
+  ethers,
+  EventFilter,
+  Signer,
   BigNumber,
   BigNumberish,
-  CallOverrides,
-  ContractTransaction,
-  ethers,
-  Overrides,
   PopulatedTransaction,
-  Signer,
+  BaseContract,
+  ContractTransaction,
+  Overrides,
+  CallOverrides,
 } from "ethers";
-import { TypedEvent, TypedEventFilter, TypedListener } from "./commons";
+import { BytesLike } from "@ethersproject/bytes";
+import { Listener, Provider } from "@ethersproject/providers";
+import { FunctionFragment, EventFragment, Result } from "@ethersproject/abi";
+import type { TypedEventFilter, TypedEvent, TypedListener } from "./common";
 
 interface GasPriceOracleInterface extends ethers.utils.Interface {
   functions: {
@@ -130,6 +131,28 @@ interface GasPriceOracleInterface extends ethers.utils.Interface {
   getEvent(nameOrSignatureOrTopic: "OwnershipTransferred"): EventFragment;
   getEvent(nameOrSignatureOrTopic: "ScalarUpdated"): EventFragment;
 }
+
+export type DecimalsUpdatedEvent = TypedEvent<
+  [BigNumber] & { arg0: BigNumber }
+>;
+
+export type GasPriceUpdatedEvent = TypedEvent<
+  [BigNumber] & { arg0: BigNumber }
+>;
+
+export type L1BaseFeeUpdatedEvent = TypedEvent<
+  [BigNumber] & { arg0: BigNumber }
+>;
+
+export type OverheadUpdatedEvent = TypedEvent<
+  [BigNumber] & { arg0: BigNumber }
+>;
+
+export type OwnershipTransferredEvent = TypedEvent<
+  [string, string] & { previousOwner: string; newOwner: string }
+>;
+
+export type ScalarUpdatedEvent = TypedEvent<[BigNumber] & { arg0: BigNumber }>;
 
 export class GasPriceOracle extends BaseContract {
   connect(signerOrProvider: Signer | Provider | string): this;
@@ -330,7 +353,15 @@ export class GasPriceOracle extends BaseContract {
   };
 
   filters: {
+    "DecimalsUpdated(uint256)"(
+      undefined?: null
+    ): TypedEventFilter<[BigNumber], { arg0: BigNumber }>;
+
     DecimalsUpdated(
+      undefined?: null
+    ): TypedEventFilter<[BigNumber], { arg0: BigNumber }>;
+
+    "GasPriceUpdated(uint256)"(
       undefined?: null
     ): TypedEventFilter<[BigNumber], { arg0: BigNumber }>;
 
@@ -338,13 +369,29 @@ export class GasPriceOracle extends BaseContract {
       undefined?: null
     ): TypedEventFilter<[BigNumber], { arg0: BigNumber }>;
 
+    "L1BaseFeeUpdated(uint256)"(
+      undefined?: null
+    ): TypedEventFilter<[BigNumber], { arg0: BigNumber }>;
+
     L1BaseFeeUpdated(
+      undefined?: null
+    ): TypedEventFilter<[BigNumber], { arg0: BigNumber }>;
+
+    "OverheadUpdated(uint256)"(
       undefined?: null
     ): TypedEventFilter<[BigNumber], { arg0: BigNumber }>;
 
     OverheadUpdated(
       undefined?: null
     ): TypedEventFilter<[BigNumber], { arg0: BigNumber }>;
+
+    "OwnershipTransferred(address,address)"(
+      previousOwner?: string | null,
+      newOwner?: string | null
+    ): TypedEventFilter<
+      [string, string],
+      { previousOwner: string; newOwner: string }
+    >;
 
     OwnershipTransferred(
       previousOwner?: string | null,
@@ -353,6 +400,10 @@ export class GasPriceOracle extends BaseContract {
       [string, string],
       { previousOwner: string; newOwner: string }
     >;
+
+    "ScalarUpdated(uint256)"(
+      undefined?: null
+    ): TypedEventFilter<[BigNumber], { arg0: BigNumber }>;
 
     ScalarUpdated(
       undefined?: null

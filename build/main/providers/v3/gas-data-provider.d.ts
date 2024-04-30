@@ -15,7 +15,7 @@ export interface IL2GasDataProvider<T> {
      */
     getGasData(): Promise<T>;
 }
-export declare type OptimismGasData = {
+export type OptimismGasData = {
     l1BaseFee: BigNumber;
     scalar: BigNumber;
     decimals: BigNumber;
@@ -38,7 +38,7 @@ export declare class OptimismGasDataProvider implements IL2GasDataProvider<Optim
  * perL2CalldataFee is the fee in wei per byte of calldata the swap uses. Multiply by the total bytes of the calldata.
  * perArbGasTotal is the fee in wei per unit of arbgas. Multiply this by the estimate we calculate based on ticks/hops in the gasModel.
  */
-export declare type ArbitrumGasData = {
+export type ArbitrumGasData = {
     perL2TxFee: BigNumber;
     perL1CalldataFee: BigNumber;
     perArbGasTotal: BigNumber;

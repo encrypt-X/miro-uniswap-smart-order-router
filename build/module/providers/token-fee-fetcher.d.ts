@@ -6,12 +6,12 @@ export declare const DEFAULT_TOKEN_FEE_RESULT: {
     buyFeeBps: BigNumber;
     sellFeeBps: BigNumber;
 };
-declare type Address = string;
-export declare type TokenFeeResult = {
+type Address = string;
+export type TokenFeeResult = {
     buyFeeBps?: BigNumber;
     sellFeeBps?: BigNumber;
 };
-export declare type TokenFeeMap = Record<Address, TokenFeeResult>;
+export type TokenFeeMap = Record<Address, TokenFeeResult>;
 export interface ITokenFeeFetcher {
     fetchFees(addresses: Address[], providerConfig?: ProviderConfig): Promise<TokenFeeMap>;
 }

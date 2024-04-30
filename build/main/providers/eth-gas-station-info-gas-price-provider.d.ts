@@ -1,5 +1,5 @@
 import { GasPrice, IGasPriceProvider } from './gas-price-provider';
-export declare type ETHGasStationResponse = {
+export type ETHGasStationResponse = {
     fast: number;
     fastest: number;
     safeLow: number;

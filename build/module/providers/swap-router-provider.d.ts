@@ -1,7 +1,7 @@
 import { ApprovalTypes } from '@uniswap/router-sdk';
 import { ChainId, Currency, CurrencyAmount } from '@uniswap/sdk-core';
 import { IMulticallProvider } from './multicall-provider';
-declare type TokenApprovalTypes = {
+type TokenApprovalTypes = {
     approvalTokenIn: ApprovalTypes;
     approvalTokenOut: ApprovalTypes;
 };

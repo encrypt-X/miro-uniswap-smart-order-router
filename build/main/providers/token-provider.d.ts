@@ -17,7 +17,7 @@ export interface ITokenProvider {
      */
     getTokens(addresses: string[], providerConfig?: ProviderConfig): Promise<TokenAccessor>;
 }
-export declare type TokenAccessor = {
+export type TokenAccessor = {
     getTokenByAddress(address: string): Token | undefined;
     getTokenBySymbol(symbol: string): Token | undefined;
     getAllTokens: () => Token[];
@@ -87,6 +87,7 @@ export declare const WGLMR_MOONBEAM: Token;
 export declare const DAI_MOONBEAM: Token;
 export declare const WBTC_MOONBEAM: Token;
 export declare const USDC_ZKATANA: Token;
+export declare const USDC_SEIDEV: Token;
 export declare class TokenProvider implements ITokenProvider {
     private chainId;
     protected multicall2Provider: IMulticallProvider;

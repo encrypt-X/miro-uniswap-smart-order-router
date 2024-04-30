@@ -7,7 +7,7 @@ import { SimulationResult, Simulator } from './simulation-provider';
 import { IV2PoolProvider } from './v2/pool-provider';
 import { ArbitrumGasData, OptimismGasData } from './v3/gas-data-provider';
 import { IV3PoolProvider } from './v3/pool-provider';
-export declare type TenderlyResponseUniversalRouter = {
+export type TenderlyResponseUniversalRouter = {
     config: {
         url: string;
         method: string;
@@ -15,7 +15,7 @@ export declare type TenderlyResponseUniversalRouter = {
     };
     simulation_results: [SimulationResult, SimulationResult, SimulationResult];
 };
-export declare type TenderlyResponseSwapRouter02 = {
+export type TenderlyResponseSwapRouter02 = {
     config: {
         url: string;
         method: string;

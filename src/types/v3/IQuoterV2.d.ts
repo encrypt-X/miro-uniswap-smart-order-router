@@ -2,28 +2,29 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import { FunctionFragment, Result } from "@ethersproject/abi";
-import { BytesLike } from "@ethersproject/bytes";
-import { Listener, Provider } from "@ethersproject/providers";
 import {
-  BaseContract,
+  ethers,
+  EventFilter,
+  Signer,
   BigNumber,
   BigNumberish,
-  CallOverrides,
-  ContractTransaction,
-  ethers,
-  Overrides,
   PopulatedTransaction,
-  Signer,
+  BaseContract,
+  ContractTransaction,
+  Overrides,
+  CallOverrides,
 } from "ethers";
-import { TypedEvent, TypedEventFilter, TypedListener } from "./commons";
+import { BytesLike } from "@ethersproject/bytes";
+import { Listener, Provider } from "@ethersproject/providers";
+import { FunctionFragment, EventFragment, Result } from "@ethersproject/abi";
+import type { TypedEventFilter, TypedEvent, TypedListener } from "./common";
 
 interface IQuoterV2Interface extends ethers.utils.Interface {
   functions: {
     "quoteExactInput(bytes,uint256)": FunctionFragment;
-    "quoteExactInputSingle(tuple)": FunctionFragment;
+    "quoteExactInputSingle((address,address,uint256,uint24,uint160))": FunctionFragment;
     "quoteExactOutput(bytes,uint256)": FunctionFragment;
-    "quoteExactOutputSingle(tuple)": FunctionFragment;
+    "quoteExactOutputSingle((address,address,uint256,uint24,uint160))": FunctionFragment;
   };
 
   encodeFunctionData(

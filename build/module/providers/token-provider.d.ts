@@ -17,7 +17,7 @@ export interface ITokenProvider {
      */
     getTokens(addresses: string[], providerConfig?: ProviderConfig): Promise<TokenAccessor>;
 }
-export declare type TokenAccessor = {
+export type TokenAccessor = {
     getTokenByAddress(address: string): Token | undefined;
     getTokenBySymbol(symbol: string): Token | undefined;
     getAllTokens: () => Token[];

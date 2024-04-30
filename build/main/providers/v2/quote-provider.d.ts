@@ -2,11 +2,11 @@ import { BigNumber } from '@ethersproject/bignumber';
 import { V2Route } from '../../routers/router';
 import { CurrencyAmount } from '../../util/amounts';
 import { ProviderConfig } from '../provider';
-export declare type V2AmountQuote = {
+export type V2AmountQuote = {
     amount: CurrencyAmount;
     quote: BigNumber | null;
 };
-export declare type V2RouteWithQuotes = [V2Route, V2AmountQuote[]];
+export type V2RouteWithQuotes = [V2Route, V2AmountQuote[]];
 export interface IV2QuoteProvider {
     getQuotesManyExactIn(amountIns: CurrencyAmount[], routes: V2Route[], providerConfig: ProviderConfig): Promise<{
         routesWithQuotes: V2RouteWithQuotes[];

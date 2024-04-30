@@ -28,17 +28,17 @@ export interface IRouteWithValidQuote<Route extends V3Route | V2Route | MixedRou
     poolAddresses: string[];
     tokenPath: Token[];
 }
-export declare type IV2RouteWithValidQuote = {
+export type IV2RouteWithValidQuote = {
     protocol: Protocol.V2;
 } & IRouteWithValidQuote<V2Route>;
-export declare type IV3RouteWithValidQuote = {
+export type IV3RouteWithValidQuote = {
     protocol: Protocol.V3;
 } & IRouteWithValidQuote<V3Route>;
-export declare type IMixedRouteWithValidQuote = {
+export type IMixedRouteWithValidQuote = {
     protocol: Protocol.MIXED;
 } & IRouteWithValidQuote<MixedRoute>;
-export declare type RouteWithValidQuote = V2RouteWithValidQuote | V3RouteWithValidQuote | MixedRouteWithValidQuote;
-export declare type V2RouteWithValidQuoteParams = {
+export type RouteWithValidQuote = V2RouteWithValidQuote | V3RouteWithValidQuote | MixedRouteWithValidQuote;
+export type V2RouteWithValidQuoteParams = {
     amount: CurrencyAmount;
     rawQuote: BigNumber;
     percent: number;
@@ -76,7 +76,7 @@ export declare class V2RouteWithValidQuote implements IV2RouteWithValidQuote {
     toString(): string;
     constructor({ amount, rawQuote, percent, route, gasModel, quoteToken, tradeType, v2PoolProvider, }: V2RouteWithValidQuoteParams);
 }
-export declare type V3RouteWithValidQuoteParams = {
+export type V3RouteWithValidQuoteParams = {
     amount: CurrencyAmount;
     rawQuote: BigNumber;
     sqrtPriceX96AfterList: BigNumber[];
@@ -120,7 +120,7 @@ export declare class V3RouteWithValidQuote implements IV3RouteWithValidQuote {
     toString(): string;
     constructor({ amount, rawQuote, sqrtPriceX96AfterList, initializedTicksCrossedList, quoterGasEstimate, percent, route, gasModel, quoteToken, tradeType, v3PoolProvider, }: V3RouteWithValidQuoteParams);
 }
-export declare type MixedRouteWithValidQuoteParams = {
+export type MixedRouteWithValidQuoteParams = {
     amount: CurrencyAmount;
     rawQuote: BigNumber;
     sqrtPriceX96AfterList: BigNumber[];

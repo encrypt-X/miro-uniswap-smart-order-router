@@ -2,21 +2,22 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import { EventFragment, FunctionFragment, Result } from "@ethersproject/abi";
-import { BytesLike } from "@ethersproject/bytes";
-import { Listener, Provider } from "@ethersproject/providers";
 import {
-  BaseContract,
+  ethers,
+  EventFilter,
+  Signer,
   BigNumber,
   BigNumberish,
-  CallOverrides,
-  ContractTransaction,
-  ethers,
-  Overrides,
   PopulatedTransaction,
-  Signer,
+  BaseContract,
+  ContractTransaction,
+  Overrides,
+  CallOverrides,
 } from "ethers";
-import { TypedEvent, TypedEventFilter, TypedListener } from "./commons";
+import { BytesLike } from "@ethersproject/bytes";
+import { Listener, Provider } from "@ethersproject/providers";
+import { FunctionFragment, EventFragment, Result } from "@ethersproject/abi";
+import type { TypedEventFilter, TypedEvent, TypedListener } from "./common";
 
 interface IUniswapV3FactoryInterface extends ethers.utils.Interface {
   functions: {
@@ -70,6 +71,24 @@ interface IUniswapV3FactoryInterface extends ethers.utils.Interface {
   getEvent(nameOrSignatureOrTopic: "OwnerChanged"): EventFragment;
   getEvent(nameOrSignatureOrTopic: "PoolCreated"): EventFragment;
 }
+
+export type FeeAmountEnabledEvent = TypedEvent<
+  [number, number] & { fee: number; tickSpacing: number }
+>;
+
+export type OwnerChangedEvent = TypedEvent<
+  [string, string] & { oldOwner: string; newOwner: string }
+>;
+
+export type PoolCreatedEvent = TypedEvent<
+  [string, string, number, number, string] & {
+    token0: string;
+    token1: string;
+    fee: number;
+    tickSpacing: number;
+    pool: string;
+  }
+>;
 
 export class IUniswapV3Factory extends BaseContract {
   connect(signerOrProvider: Signer | Provider | string): this;
@@ -212,10 +231,23 @@ export class IUniswapV3Factory extends BaseContract {
   };
 
   filters: {
+    "FeeAmountEnabled(uint24,int24)"(
+      fee?: BigNumberish | null,
+      tickSpacing?: BigNumberish | null
+    ): TypedEventFilter<[number, number], { fee: number; tickSpacing: number }>;
+
     FeeAmountEnabled(
       fee?: BigNumberish | null,
       tickSpacing?: BigNumberish | null
     ): TypedEventFilter<[number, number], { fee: number; tickSpacing: number }>;
+
+    "OwnerChanged(address,address)"(
+      oldOwner?: string | null,
+      newOwner?: string | null
+    ): TypedEventFilter<
+      [string, string],
+      { oldOwner: string; newOwner: string }
+    >;
 
     OwnerChanged(
       oldOwner?: string | null,
@@ -223,6 +255,23 @@ export class IUniswapV3Factory extends BaseContract {
     ): TypedEventFilter<
       [string, string],
       { oldOwner: string; newOwner: string }
+    >;
+
+    "PoolCreated(address,address,uint24,int24,address)"(
+      token0?: string | null,
+      token1?: string | null,
+      fee?: BigNumberish | null,
+      tickSpacing?: null,
+      pool?: null
+    ): TypedEventFilter<
+      [string, string, number, number, string],
+      {
+        token0: string;
+        token1: string;
+        fee: number;
+        tickSpacing: number;
+        pool: string;
+      }
     >;
 
     PoolCreated(

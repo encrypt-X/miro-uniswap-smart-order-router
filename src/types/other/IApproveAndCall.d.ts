@@ -2,22 +2,23 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import { FunctionFragment, Result } from "@ethersproject/abi";
-import { BytesLike } from "@ethersproject/bytes";
-import { Listener, Provider } from "@ethersproject/providers";
 import {
-  BaseContract,
+  ethers,
+  EventFilter,
+  Signer,
   BigNumber,
   BigNumberish,
-  CallOverrides,
+  PopulatedTransaction,
+  BaseContract,
   ContractTransaction,
-  ethers,
   Overrides,
   PayableOverrides,
-  PopulatedTransaction,
-  Signer,
+  CallOverrides,
 } from "ethers";
-import { TypedEvent, TypedEventFilter, TypedListener } from "./commons";
+import { BytesLike } from "@ethersproject/bytes";
+import { Listener, Provider } from "@ethersproject/providers";
+import { FunctionFragment, EventFragment, Result } from "@ethersproject/abi";
+import type { TypedEventFilter, TypedEvent, TypedListener } from "./common";
 
 interface IApproveAndCallInterface extends ethers.utils.Interface {
   functions: {
@@ -27,8 +28,8 @@ interface IApproveAndCallInterface extends ethers.utils.Interface {
     "approveZeroThenMaxMinusOne(address)": FunctionFragment;
     "callPositionManager(bytes)": FunctionFragment;
     "getApprovalType(address,uint256)": FunctionFragment;
-    "increaseLiquidity(tuple)": FunctionFragment;
-    "mint(tuple)": FunctionFragment;
+    "increaseLiquidity((address,address,uint256,uint256,uint256))": FunctionFragment;
+    "mint((address,address,uint24,int24,int24,uint256,uint256,address))": FunctionFragment;
   };
 
   encodeFunctionData(functionFragment: "approveMax", values: [string]): string;

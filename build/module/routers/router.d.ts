@@ -16,7 +16,7 @@ export declare class V2Route extends V2RouteRaw<Token, Token> {
 export declare class MixedRoute extends MixedRouteSDK<Token, Token> {
     protocol: Protocol.MIXED;
 }
-export declare type SwapRoute = {
+export type SwapRoute = {
     /**
      * The quote for the swap.
      * For EXACT_IN swaps this will be an amount of token out.
@@ -89,10 +89,10 @@ export declare type SwapRoute = {
      */
     portionAmount?: CurrencyAmount;
 };
-export declare type MethodParameters = SDKMethodParameters & {
+export type MethodParameters = SDKMethodParameters & {
     to: string;
 };
-export declare type SwapToRatioRoute = SwapRoute & {
+export type SwapToRatioRoute = SwapRoute & {
     optimalRatio: Fraction;
     postSwapTargetPool: Pool;
 };
@@ -101,29 +101,29 @@ export declare enum SwapToRatioStatus {
     NO_ROUTE_FOUND = 2,
     NO_SWAP_NEEDED = 3
 }
-export declare type SwapToRatioSuccess = {
+export type SwapToRatioSuccess = {
     status: SwapToRatioStatus.SUCCESS;
     result: SwapToRatioRoute;
 };
-export declare type SwapToRatioFail = {
+export type SwapToRatioFail = {
     status: SwapToRatioStatus.NO_ROUTE_FOUND;
     error: string;
 };
-export declare type SwapToRatioNoSwapNeeded = {
+export type SwapToRatioNoSwapNeeded = {
     status: SwapToRatioStatus.NO_SWAP_NEEDED;
 };
-export declare type SwapToRatioResponse = SwapToRatioSuccess | SwapToRatioFail | SwapToRatioNoSwapNeeded;
+export type SwapToRatioResponse = SwapToRatioSuccess | SwapToRatioFail | SwapToRatioNoSwapNeeded;
 export declare enum SwapType {
     UNIVERSAL_ROUTER = 0,
     SWAP_ROUTER_02 = 1
 }
-export declare type SwapOptionsUniversalRouter = UniversalRouterSwapOptions & {
+export type SwapOptionsUniversalRouter = UniversalRouterSwapOptions & {
     type: SwapType.UNIVERSAL_ROUTER;
     simulate?: {
         fromAddress: string;
     };
 };
-export declare type SwapOptionsSwapRouter02 = {
+export type SwapOptionsSwapRouter02 = {
     type: SwapType.SWAP_ROUTER_02;
     recipient: string;
     slippageTolerance: Percent;
@@ -143,16 +143,16 @@ export declare type SwapOptionsSwapRouter02 = {
         expiry: string;
     });
 };
-export declare type SwapOptions = SwapOptionsUniversalRouter | SwapOptionsSwapRouter02;
-export declare type SwapAndAddConfig = {
+export type SwapOptions = SwapOptionsUniversalRouter | SwapOptionsSwapRouter02;
+export type SwapAndAddConfig = {
     maxIterations: number;
     ratioErrorTolerance: Fraction;
 };
-export declare type SwapAndAddOptions = {
+export type SwapAndAddOptions = {
     swapOptions: SwapOptionsSwapRouter02;
     addLiquidityOptions: CondensedAddLiquidityOptions;
 };
-export declare type SwapAndAddParameters = {
+export type SwapAndAddParameters = {
     initialBalanceTokenIn: CurrencyAmount;
     initialBalanceTokenOut: CurrencyAmount;
     preLiquidityPosition: Position;

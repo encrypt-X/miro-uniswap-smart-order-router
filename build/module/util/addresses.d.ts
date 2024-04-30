@@ -14,7 +14,7 @@ export declare const TICK_LENS_ADDRESS: string | undefined;
 export declare const NONFUNGIBLE_POSITION_MANAGER_ADDRESS: string | undefined;
 export declare const V3_MIGRATOR_ADDRESS: string | undefined;
 export declare const MULTICALL2_ADDRESS = "0x5BA1e12693Dc8F9c48aAD8770482f4739bEeD696";
-export declare type AddressMap = {
+export type AddressMap = {
     [chainId: number]: string | undefined;
 };
 export declare function constructSameAddressMap<T extends string>(address: T, additionalNetworks?: ChainId[]): {

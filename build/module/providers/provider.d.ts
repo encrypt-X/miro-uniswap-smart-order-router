@@ -1,4 +1,4 @@
-export declare type ProviderConfig = {
+export type ProviderConfig = {
     /**
      * The block number to use when getting data on-chain.
      */
@@ -14,7 +14,7 @@ export declare type ProviderConfig = {
      */
     saveTenderlySimulationIfFailed?: boolean;
 };
-export declare type LocalCacheEntry<T> = {
+export type LocalCacheEntry<T> = {
     entry: T;
     blockNumber: number;
 };

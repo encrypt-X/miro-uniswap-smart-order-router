@@ -1,5 +1,5 @@
-import { Provider } from "@ethersproject/providers";
 import { Signer } from "ethers";
+import { Provider } from "@ethersproject/providers";
 import type { IMixedRouteQuoterV1, IMixedRouteQuoterV1Interface } from "../IMixedRouteQuoterV1";
 export declare class IMixedRouteQuoterV1__factory {
     static readonly abi: ({

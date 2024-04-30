@@ -10,16 +10,16 @@ import { MixedRouteWithValidQuote, RouteWithValidQuote, V2RouteWithValidQuote, V
 export declare const usdGasTokensByChain: {
     [chainId in ChainId]?: Token[];
 };
-export declare type L1ToL2GasCosts = {
+export type L1ToL2GasCosts = {
     gasUsedL1: BigNumber;
     gasCostL1USD: CurrencyAmount;
     gasCostL1QuoteToken: CurrencyAmount;
 };
-export declare type GasModelProviderConfig = ProviderConfig & {
+export type GasModelProviderConfig = ProviderConfig & {
     additionalGasOverhead?: BigNumber;
     gasToken?: Token;
 };
-export declare type BuildOnChainGasModelFactoryType = {
+export type BuildOnChainGasModelFactoryType = {
     chainId: ChainId;
     gasPriceWei: BigNumber;
     pools: LiquidityCalculationPools;
@@ -29,14 +29,14 @@ export declare type BuildOnChainGasModelFactoryType = {
     l2GasDataProvider?: IL2GasDataProvider<OptimismGasData> | IL2GasDataProvider<ArbitrumGasData>;
     providerConfig?: GasModelProviderConfig;
 };
-export declare type BuildV2GasModelFactoryType = {
+export type BuildV2GasModelFactoryType = {
     chainId: ChainId;
     gasPriceWei: BigNumber;
     poolProvider: IV2PoolProvider;
     token: Token;
     providerConfig?: GasModelProviderConfig;
 };
-export declare type LiquidityCalculationPools = {
+export type LiquidityCalculationPools = {
     usdPool: Pool;
     nativeAndQuoteTokenV3Pool: Pool | null;
     nativeAndAmountTokenV3Pool: Pool | null;
@@ -58,7 +58,7 @@ export declare type LiquidityCalculationPools = {
  * amount that is considered in the algorithm so it is important to minimize the number of
  * long running operations.
  */
-export declare type IGasModel<TRouteWithValidQuote extends RouteWithValidQuote> = {
+export type IGasModel<TRouteWithValidQuote extends RouteWithValidQuote> = {
     estimateGasCost(routeWithValidQuote: TRouteWithValidQuote): {
         gasEstimate: BigNumber;
         gasCostInToken: CurrencyAmount;
