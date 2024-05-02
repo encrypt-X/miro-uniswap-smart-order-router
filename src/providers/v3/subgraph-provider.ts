@@ -66,7 +66,7 @@ const SUBGRAPH_URL_BY_CHAIN: { [chainId in ChainId]?: string } = {
   [ChainId.ZKATANA]:
     'http://34.143.199.195:8000/subgraphs/name/gradient/uniswap-v3-test12', // TODO
   [ChainId.SEIDEV]:
-    'https://api.dev.miro.finance/subgraph/graphql',
+    'https://api.dev.miro.finance/subgraph-seidev/graphql',
 };
 
 const PAGE_SIZE = 1000; // 1k is max possible query size from subgraph.
