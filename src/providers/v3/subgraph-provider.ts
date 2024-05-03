@@ -98,7 +98,7 @@ export class V3SubgraphProvider implements IV3SubgraphProvider {
     if (!subgraphUrl) {
       throw new Error(`No subgraph url for chain id: ${this.chainId}`);
     }
-    this.client = new GraphQLClient(subgraphUrl);
+    this.client = new GraphQLClient(subgraphUrl, { errorPolicy: "ignore" });
   }
 
   public async getPools(
