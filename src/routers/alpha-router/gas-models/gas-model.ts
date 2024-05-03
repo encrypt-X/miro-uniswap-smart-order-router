@@ -34,14 +34,14 @@ import {
   USDC_POLYGON,
   USDC_SEPOLIA,
   USDC_ZKATANA,
-  USDC_SEIDEV,
   USDT_ARBITRUM,
   USDT_BNB,
   USDT_GOERLI,
   USDT_MAINNET,
   USDT_OPTIMISM,
   USDT_OPTIMISM_GOERLI,
-  WBTC_GOERLI
+  WBTC_GOERLI,
+  mUSDC_SEIDEV
 } from '../../../providers/token-provider';
 import { IV2PoolProvider } from '../../../providers/v2/pool-provider';
 import {
@@ -83,7 +83,7 @@ export const usdGasTokensByChain: { [chainId in ChainId]?: Token[] } = {
   [ChainId.AVALANCHE]: [DAI_AVAX, USDC_AVAX],
   [ChainId.BASE]: [USDC_BASE],
   [ChainId.ZKATANA]: [USDC_ZKATANA],
-  [ChainId.SEIDEV]: [USDC_SEIDEV],
+  [ChainId.SEIDEV]: [mUSDC_SEIDEV],
 };
 
 export type L1ToL2GasCosts = {

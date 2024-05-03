@@ -98,7 +98,7 @@ const BASES_TO_CHECK_TRADES_AGAINST = {
     [sdk_core_1.ChainId.BASE_GOERLI]: [chains_1.WRAPPED_NATIVE_CURRENCY[sdk_core_1.ChainId.BASE_GOERLI]],
     [sdk_core_1.ChainId.BASE]: [chains_1.WRAPPED_NATIVE_CURRENCY[sdk_core_1.ChainId.BASE], token_provider_1.USDC_BASE],
     [sdk_core_1.ChainId.ZKATANA]: [chains_1.WRAPPED_NATIVE_CURRENCY[sdk_core_1.ChainId.ZKATANA], token_provider_1.USDC_ZKATANA],
-    [sdk_core_1.ChainId.SEIDEV]: [token_provider_1.mUSDT_SEIDEV, token_provider_1.mWETH_SEIDEV],
+    [sdk_core_1.ChainId.SEIDEV]: [token_provider_1.mUSDC_SEIDEV, token_provider_1.mWETH_SEIDEV],
 };
 /**
  * Provider that uses a hardcoded list of V3 pools to generate a list of subgraph pools.

@@ -578,11 +578,18 @@ export const mUSDT_SEIDEV = new Token(
 );
 export const mWETH_SEIDEV = new Token(
   ChainId.SEIDEV,
-  '0x3Aef8eAaa38b7cd991A7fe3BBC389717370c00d6',
+  '0x8265967F94D9d255397eFaD6451841E673685a1C',
   18,
-  'mWETH',
-  'miro Wrapped Ether'
-);
+  'WETH',
+  'Wrapped Ether'
+); // for miro
+export const mUSDC_SEIDEV = new Token(
+  ChainId.SEIDEV,
+  '0xb0ec18459DFDB5c8043a660FC8498E914dccD1C5',
+  18,
+  'USDC',
+  'USDC'
+); // for miro
 
 export class TokenProvider implements ITokenProvider {
   constructor(
@@ -844,7 +851,7 @@ export const USDC_ON = (chainId: ChainId): Token => {
     case ChainId.ZKATANA:
       return USDC_ZKATANA;
     case ChainId.SEIDEV:
-      return USDC_SEIDEV;
+      return mUSDC_SEIDEV;
     default:
       throw new Error(`Chain id: ${chainId} not supported`);
   }

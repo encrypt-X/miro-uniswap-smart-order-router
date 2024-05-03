@@ -92,6 +92,7 @@ export declare const WETH_SEIDEV: Token;
 export declare const WSEI_SEIDEV: Token;
 export declare const mUSDT_SEIDEV: Token;
 export declare const mWETH_SEIDEV: Token;
+export declare const mUSDC_SEIDEV: Token;
 export declare class TokenProvider implements ITokenProvider {
     private chainId;
     protected multicall2Provider: IMulticallProvider;

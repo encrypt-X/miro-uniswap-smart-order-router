@@ -98,7 +98,7 @@ exports.CACHE_SEED_TOKENS = {
         WETH: util_1.WRAPPED_NATIVE_CURRENCY[sdk_core_1.ChainId.ZKATANA],
     },
     [sdk_core_1.ChainId.SEIDEV]: {
-        USDT: token_provider_1.mUSDT_SEIDEV,
+        USDC: token_provider_1.mUSDC_SEIDEV,
     },
     // Currently we do not have providers for Moonbeam mainnet or Gnosis testnet
 };

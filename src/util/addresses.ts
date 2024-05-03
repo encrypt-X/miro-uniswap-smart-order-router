@@ -191,11 +191,11 @@ export const WETH9: {
   ),
   [ChainId.SEIDEV]: new Token(
     ChainId.SEIDEV,
-    '0x3Aef8eAaa38b7cd991A7fe3BBC389717370c00d6',
+    '0x8265967F94D9d255397eFaD6451841E673685a1C',
     18,
-    'mWETH',
-    'miro Wrapped Ether'
-  ),
+    'WETH',
+    'Wrapped Ether'
+  ), // for miro
 };
 
 export const BEACON_CHAIN_DEPOSIT_ADDRESS =
