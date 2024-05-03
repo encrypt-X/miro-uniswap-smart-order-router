@@ -116,6 +116,7 @@ export class V3SubgraphProvider implements IV3SubgraphProvider {
           first: $pageSize
           ${blockNumber ? `block: { number: ${blockNumber} }` : ``}
           where: { id_gt: $id }
+          subgraphError: allow
         ) {
           id
           token0 {
