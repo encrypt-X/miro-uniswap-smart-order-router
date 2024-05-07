@@ -63,7 +63,6 @@ import {
   WMATIC_POLYGON_MUMBAI,
   WXDAI_GNOSIS,
   mUSDC_SEIDEV,
-  mWETH_SEIDEV
 } from '../token-provider';
 
 import { IV3PoolProvider } from './pool-provider';
@@ -158,7 +157,7 @@ const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
   [ChainId.BASE_GOERLI]: [WRAPPED_NATIVE_CURRENCY[ChainId.BASE_GOERLI]!],
   [ChainId.BASE]: [WRAPPED_NATIVE_CURRENCY[ChainId.BASE]!, USDC_BASE],
   [ChainId.ZKATANA]: [WRAPPED_NATIVE_CURRENCY[ChainId.ZKATANA]!, USDC_ZKATANA],
-  [ChainId.SEIDEV]: [mUSDC_SEIDEV, mWETH_SEIDEV],
+  [ChainId.SEIDEV]: [WRAPPED_NATIVE_CURRENCY[ChainId.SEIDEV]!, mUSDC_SEIDEV],
 };
 
 /**

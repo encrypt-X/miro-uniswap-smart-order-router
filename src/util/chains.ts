@@ -188,8 +188,8 @@ export const NATIVE_NAMES_BY_ID: { [chainId: number]: string[] } = {
     '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee',
   ],
   [ChainId.SEIDEV]: [
-    'SEI',
-    'SEI',
+    'ETH',
+    'ETHER',
     '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee', // TODO
   ],
 };
@@ -212,7 +212,7 @@ export const NATIVE_CURRENCY: { [chainId: number]: NativeCurrencyName } = {
   [ChainId.AVALANCHE]: NativeCurrencyName.AVALANCHE,
   [ChainId.BASE]: NativeCurrencyName.ETHER,
   [ChainId.ZKATANA]: NativeCurrencyName.ETHER,
-  [ChainId.SEIDEV]: NativeCurrencyName.SEI, // TODO
+  [ChainId.SEIDEV]: NativeCurrencyName.ETHER, // TODO
 };
 
 export const ID_TO_NETWORK_NAME = (id: number): ChainName => {
@@ -434,10 +434,10 @@ export const WRAPPED_NATIVE_CURRENCY: { [chainId: number]: Token } = {
   ),
   [ChainId.SEIDEV]: new Token(
     ChainId.SEIDEV,
-    '0x57eE725BEeB991c70c53f9642f36755EC6eb2139',
+    '0x8265967F94D9d255397eFaD6451841E673685a1C',
     18,
-    'WSEI',
-    'Wrapped SEI'
+    'WETH',
+    'Wrapped Ether'
   ),
 };
 

@@ -152,6 +152,7 @@ export const CACHE_SEED_TOKENS: {
   },
   [ChainId.SEIDEV]: {
     USDC: mUSDC_SEIDEV,
+    WETH: WRAPPED_NATIVE_CURRENCY[ChainId.SEIDEV]!,
   },
   // Currently we do not have providers for Moonbeam mainnet or Gnosis testnet
 };
